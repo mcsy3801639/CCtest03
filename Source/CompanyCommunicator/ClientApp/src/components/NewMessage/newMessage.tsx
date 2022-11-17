@@ -341,15 +341,15 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
 
         if(sizeInKb <= 1024)
             return true
-        
+
         else
             return false;
     }
-    
+
 
     private handleImageSelection = () => {
         const file = this.fileInput.current.files[0];
-        
+
         if(file){
             const  fileType = file['type'];
             const { type: mimeType } = file;
@@ -358,11 +358,11 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                this.setState({errorImageUrlMessage: this.localize("ErrorImageTypesMessage")});
                return;
             }
-            
+
             this.setState({localImagePath: file['name']});
             this.setState({errorImageUrlMessage: ""});
-    
-    
+
+
             const fileReader = new FileReader();
             fileReader.readAsDataURL(file);
             fileReader.onload = () => {
@@ -372,7 +372,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
 
                 image.onload = function (e: any) {
                     const MAX_WIDTH = 1024;
-    
+
                     if (image.width > MAX_WIDTH) {
                         const canvas = document.createElement('canvas');
                         canvas.width = MAX_WIDTH;
@@ -390,7 +390,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                     this.setState({ errorImageUrlMessage: this.localize("ErrorImageSizeMessage") });
                     return;
                 }
-                
+
 
                 setCardImageLink(this.card, resizedImageAsBase64);
                 this.updateCard();
@@ -398,12 +398,12 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                     imageLink: resizedImageAsBase64
                     });
             }
-    
+
             fileReader.onerror = (error) => {
                 //reject(error);
             }
         }
-        
+
     }
 
     public render(): JSX.Element {
@@ -433,12 +433,12 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                         <Flex gap="gap.small" vAlign="end">
                                             <Input fluid className="inputField imageField"
                                                 value={(this.state.imageLink && this.state.imageLink.startsWith("data:"))
-                                                            ? this.state.localImagePath 
+                                                            ? this.state.localImagePath
                                                             : this.state.imageLink}
                                                 label={
                                                     <>
                                             {this.localize("ImageURL")}
-                                            <TooltipHost 
+                                            <TooltipHost
                                                 content={this.localize("ImageSizeInfoContent")}
                                                 calloutProps={{ gapSpace: 0 }}
                                                 hostClassName="tooltipHostStyles"
@@ -450,9 +450,9 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 placeholder={this.localize("ImageURL")}
                                                 onChange={this.onImageLinkChanged}
                                                 error={!(this.state.errorImageUrlMessage === "")}
-                                                autoComplete="off"                                             
+                                                autoComplete="off"
                                             />
-                                            
+
                                             <Flex.Item push>
                                                 <Button onClick={this.handleUploadClick}
                                                     size="medium" className="inputField"
@@ -581,6 +581,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                         )
                                                     },
                                                 },
+                                                /*
                                                 {
                                                     name: "allUsers",
                                                     key: "allUsers",
@@ -599,6 +600,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                         )
                                                     },
                                                 },
+                                                */
                                                 {
                                                     name: "groups",
                                                     key: "groups",
