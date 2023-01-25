@@ -136,7 +136,7 @@
     "appIconUrl": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "https://raw.githubusercontent.com/mcsy3801639/CCtest03/main/Manifest/color.png",
+      "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-company-communicator-app/main/Manifest/color.png",
       "metadata": {
         "description": "The link to the icon for the app. It must resolve to a PNG file."
       }
@@ -152,7 +152,7 @@
     "headerLogoUrl": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "https://raw.githubusercontent.com/mcsy3801639/CCtest03/main/Source/CompanyCommunicator/ClientApp/src/assets/Images/mslogo.png",
+      "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-company-communicator-app/main/Source/CompanyCommunicator/ClientApp/src/assets/Images/mslogo.png",
       "metadata": {
         "description": "The link to the logo for the app. It must resolve to a PNG file."
       }
@@ -202,7 +202,7 @@
       "metadata": {
         "description": "The URL to the GitHub repository to deploy."
       },
-      "defaultValue": "https://github.com/mcsy3801639/CCtest03.git"
+      "defaultValue": "https://github.com/OfficeDev/microsoft-teams-company-communicator-app.git"
     },
     "gitBranch": {
       "type": "string",

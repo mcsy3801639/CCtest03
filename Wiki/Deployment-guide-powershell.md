@@ -132,11 +132,11 @@ To begin, you will need:
     
         > **Note:** The default value is 2 to minimize the chances of an error during app deployment. After deployment you can choose to change the size of the hosting plan.
 
-    - `gitRepoUrl` - The URL to the GitHub repository to deploy. Default value: [https://github.com/mcsy3801639/CCtest03.git](https://github.com/mcsy3801639/CCtest03.git)
+    - `gitRepoUrl` - The URL to the GitHub repository to deploy. Default value: [https://github.com/OfficeDev/microsoft-teams-company-communicator-app.git](https://github.com/OfficeDev/microsoft-teams-company-communicator-app.git)
     - `gitBranch` - The branch of the GitHub repository to deploy. Default value: main
     - `appDisplayName` - The app (and bot) display name. Default value:Company Communicator.
     - `appDescription` - The app (and bot) description. Default value: Broadcast messages to multiple teams and people in one go.
-    - `appIconUrl` - The link to the icon for the app. It must resolve to a PNG file. Default value [https://raw.githubusercontent.com/mcsy3801639/CCtest03/main/Manifest/color.png](https://raw.githubusercontent.com/mcsy3801639/CCtest03/main/Manifest/color.png)
+    - `appIconUrl` - The link to the icon for the app. It must resolve to a PNG file. Default value [https://raw.githubusercontent.com/OfficeDev/microsoft-teams-company-communicator-app/main/Manifest/color.png](https://raw.githubusercontent.com/OfficeDev/microsoft-teams-company-communicator-app/main/Manifest/color.png)
     - `Header Text` - Default value is `Company Communicator`. This is the banner text that will appear starting v5.2, you will have the option to modify later.
     - `Header Logo Url` - Default image is Microsoft logo. You will have the option to modify later.
     - `companyName` - The display name for the company.
