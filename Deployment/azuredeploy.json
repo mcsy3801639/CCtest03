@@ -136,7 +136,7 @@
     "appIconUrl": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "https://raw.githubusercontent.com/mcsy3801639/CCtest03/main/Manifest/color.png",
+      "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-company-communicator-app/main/Manifest/color.png",
       "metadata": {
         "description": "The link to the icon for the app. It must resolve to a PNG file."
       }
@@ -152,7 +152,7 @@
     "headerLogoUrl": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "https://raw.githubusercontent.com/mcsy3801639/CCtest03/main/Source/CompanyCommunicator/ClientApp/src/assets/Images/mslogo.png",
+      "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-company-communicator-app/main/Source/CompanyCommunicator/ClientApp/src/assets/Images/mslogo.png",
       "metadata": {
         "description": "The link to the logo for the app. It must resolve to a PNG file."
       }
@@ -202,7 +202,7 @@
       "metadata": {
         "description": "The URL to the GitHub repository to deploy."
       },
-      "defaultValue": "https://github.com/mcsy3801639/CCtest03.git"
+      "defaultValue": "https://github.com/OfficeDev/microsoft-teams-company-communicator-app.git"
     },
     "gitBranch": {
       "type": "string",
@@ -316,7 +316,8 @@
     "AppInsightsSecretResourceId": "[resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('AppInsightsSecretName'))]",
     "UserAppSecretResourceId": "[resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('UserAppSecretName'))]",
     "AuthorAppSecretResourceId": "[resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('AuthorAppSecretName'))]",
-    "GraphAppSecretResourceId": "[resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('GraphAppSecretName'))]"
+    "GraphAppSecretResourceId": "[resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('GraphAppSecretName'))]",
+    "netFrameworkVersion":"v6.0"
   },
   "resources": [
     {
@@ -571,7 +572,14 @@
             "allowedOrigins": [
               "[concat('https://', variables('frontDoorDomain'))]"
             ]
-          }
+          },
+          "metadata": [
+            {
+              "name": "CURRENT_STACK",
+              "value": "dotnet"
+            }
+          ],
+          "netFrameworkVersion": "v6.0.100"
         }
       },
       "dependsOn": [
@@ -666,7 +674,8 @@
         "httpsOnly": true,
         "siteConfig": {
           "ftpsState": "Disabled",
-          "alwaysOn": "[not(variables('isSharedPlan'))]"
+          "alwaysOn": "[not(variables('isSharedPlan'))]",
+          "netFrameworkVersion": "[variables('netFrameworkVersion')]"
         }
       },
       "dependsOn": [
@@ -710,7 +719,7 @@
             "KeyVault:Url": "[variables('keyVaultUrl')]",
             "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1)]",
             "AzureWebJobsDashboard": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('StorageAccountSecretResourceId'),'2015-06-01').secretUriWithVersion, ')')]",
-            "FUNCTIONS_EXTENSION_VERSION": "~3",
+            "FUNCTIONS_EXTENSION_VERSION": "~4",
             "FUNCTIONS_WORKER_RUNTIME": "dotnet",
             "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1)]",
             "WEBSITE_CONTENTSHARE": "[toLower(variables('prepFunctionAppName'))]",
@@ -754,7 +763,8 @@
         "httpsOnly": true,
         "siteConfig": {
           "ftpsState": "Disabled",
-          "alwaysOn": "[not(variables('isSharedPlan'))]"
+          "alwaysOn": "[not(variables('isSharedPlan'))]",
+          "netFrameworkVersion": "[variables('netFrameworkVersion')]"
         }
       },
       "dependsOn": [
@@ -793,7 +803,7 @@
             "KeyVault:Url": "[variables('keyVaultUrl')]",
             "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1)]",
             "AzureWebJobsDashboard": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('StorageAccountSecretResourceId'),'2015-06-01').secretUriWithVersion, ')')]",
-            "FUNCTIONS_EXTENSION_VERSION": "~3",
+            "FUNCTIONS_EXTENSION_VERSION": "~4",
             "FUNCTIONS_WORKER_RUNTIME": "dotnet",
             "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1)]",
             "WEBSITE_CONTENTSHARE": "[toLower(variables('sendFunctionAppName'))]",
@@ -835,7 +845,8 @@
         "httpsOnly": true,
         "siteConfig": {
           "ftpsState": "Disabled",
-          "alwaysOn": "[not(variables('isSharedPlan'))]"
+          "alwaysOn": "[not(variables('isSharedPlan'))]",
+          "netFrameworkVersion": "[variables('netFrameworkVersion')]"
         }
       },
       "dependsOn": [
@@ -875,7 +886,7 @@
             "KeyVault:Url": "[variables('keyVaultUrl')]",
             "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1)]",
             "AzureWebJobsDashboard": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('StorageAccountSecretResourceId'),'2015-06-01').secretUriWithVersion, ')')]",
-            "FUNCTIONS_EXTENSION_VERSION": "~3",
+            "FUNCTIONS_EXTENSION_VERSION": "~4",
             "FUNCTIONS_WORKER_RUNTIME": "dotnet",
             "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1)]",
             "WEBSITE_CONTENTSHARE": "[toLower(variables('dataFunctionAppName'))]",
