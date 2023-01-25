@@ -911,7 +911,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
 
     private onImageLinkChanged = (event: any) => {
         let url = event.target.value.toLowerCase();
-        if (!((url === "") || (url.startsWith("https://") || (url.startsWith("data:image/png;base64,")) || (url.startsWith("data:image/jpeg;base64,")) || (url.startsWith("data:image/gif;base64,"))))) {
+        if (!((url === "") || (url.startsWith("https://") || (url.startsWith("data:image/png;base64,")) || (url.startsWith("data:image/jpeg;base64,")) || (url.startsWith("data:image/gif;base64,")) || (url.startsWith("http://"))))) {
             this.setState({
                 errorImageUrlMessage: this.localize("ErrorURLMessage")
             });
@@ -1005,7 +1005,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
     }
 
     private onBtnLinkChanged = (event: any) => {
-        if (!(event.target.value === "" || event.target.value.toLowerCase().startsWith("https://"))) {
+        if (!(event.target.value === "" || event.target.value.toLowerCase().startsWith("https://") || event.target.value.toLowerCase().startsWith("http://"))) {
             this.setState({
                 errorButtonUrlMessage: this.localize("ErrorURLMessage")
             });
