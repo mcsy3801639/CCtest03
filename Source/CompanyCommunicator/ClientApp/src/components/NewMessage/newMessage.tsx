@@ -534,6 +534,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                             onCheckedValueChange={this.onGroupSelected}
                                             vertical={true}
                                             items={[
+                                                /*
                                                 {
                                                     name: "teams",
                                                     key: "teams",
@@ -581,6 +582,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                         )
                                                     },
                                                 },
+                                                */
                                                 /*
                                                 {
                                                     name: "allUsers",
